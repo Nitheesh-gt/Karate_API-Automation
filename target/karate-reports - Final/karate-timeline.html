@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"test\/Delete[1:6]","start":1678009667636,"end":1678009669263,"title":"test\/Delete[1:6] 15:17:47.636-15:17:49.263 DELETE API TEST"},{"id":2,"group":1,"content":"test\/Get[1:7]","start":1678009670027,"end":1678009670635,"title":"test\/Get[1:7] 15:17:50.027-15:17:50.635 GET API STATUS"},{"id":3,"group":1,"content":"test\/Get[2:12]","start":1678009670644,"end":1678009670816,"title":"test\/Get[2:12] 15:17:50.644-15:17:50.816 GET API RESPONSE"},{"id":4,"group":1,"content":"test\/Get[3:22]","start":1678009670832,"end":1678009671094,"title":"test\/Get[3:22] 15:17:50.832-15:17:51.094 GET API ASSERTIONS"},{"id":5,"group":1,"content":"test\/Post[1:8]","start":1678009671367,"end":1678009671910,"title":"test\/Post[1:8] 15:17:51.367-15:17:51.910 POST API TEST"},{"id":6,"group":1,"content":"test\/Post[2:14]","start":1678009671918,"end":1678009672450,"title":"test\/Post[2:14] 15:17:51.918-15:17:52.450 GET API RESPONSE"},{"id":7,"group":1,"content":"test\/Post[3:23]","start":1678009672463,"end":1678009672919,"title":"test\/Post[3:23] 15:17:52.463-15:17:52.919 POST API ASSERTIONS"},{"id":8,"group":1,"content":"test\/Post[4:29]","start":1678009672932,"end":1678009673415,"title":"test\/Post[4:29] 15:17:52.932-15:17:53.415 POST API ASSERTIONS REQUEST JSON"},{"id":9,"group":1,"content":"test\/Post[5:38]","start":1678009673423,"end":1678009673872,"title":"test\/Post[5:38] 15:17:53.423-15:17:53.872 POST API ASSERTIONS RESPONSE JSON"},{"id":10,"group":1,"content":"test\/Put[1:6]","start":1678009674126,"end":1678009674606,"title":"test\/Put[1:6] 15:17:54.126-15:17:54.606 PUT API TEST"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
