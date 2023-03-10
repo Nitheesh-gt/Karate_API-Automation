@@ -3,7 +3,7 @@ Feature: API TESTS
   Background: 
     * url 'https://reqres.in/api/'
     * header Accept = 'application.json'
-    Given path '/users'
+    Given path '/users' 
 
   Scenario: POST API TEST
  		And request {"name": "morpheus","job": "leader"}

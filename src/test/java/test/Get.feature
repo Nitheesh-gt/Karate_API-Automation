@@ -1,17 +1,13 @@
 Feature: API TESTS
 
   Background: 
-    * url 'https://reqres.in/api'
-    * header Accept = 'application.json'
+    * url 'https://reqres.in/api/users?page=2'
 
   Scenario: GET API STATUS
-    Given path '/users?page=2'
     When method GET
     Then status 200
 
   Scenario: GET API RESPONSE
-    Given path '/users'
-    And param page = 2
     When method GET
     And print response
     And print responseStatus
@@ -19,11 +15,10 @@ Feature: API TESTS
     And print responseHeaders
     And print responseCookies
 
-  Scenario: GET API ASSERTIONS
-    Given path '/users?page=2'
+  Scenario: GET API ASSERTIONS 
     When method GET
     And print response
-    And match response.data[1].name != null	
+    And match response.data[1].first_name != null	
     And assert response.data.length == 6
-    And match response.data[2].id == 3
-    And match response.data[3].color == '#7BC4C4'
+    And match response.data[2].id == 9
+    And match response.data[3].last_name == 'Fields'
